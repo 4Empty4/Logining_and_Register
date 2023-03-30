@@ -8,6 +8,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+import java.util.Base64;
+
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
@@ -50,26 +59,20 @@ public class test_comand {
 
     User user_test;
 
+    AESEncryptionDecryption aes;
 
 
     public test_comand(User_Repo user_repo) {
         this.user_repo = user_repo;
+
     }
 
+
+
 @GetMapping("/test")
-    String test() throws NoSuchAlgorithmException {
-        String passwords = "Jumanji228";
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        md.update(passwords.getBytes());
-        byte[] digest = md.digest();
-    System.out.println(digest);
-        String test = new String(digest);
-    System.out.println(test);
-       /* User user_test = new User("Oleks","Tester","o@gmail.com",test,1234533);
-        user_repo.save(user_test);*/
+    String test(){
 
-
-
+        aes.main("Jumani");
 
         return "work";
 }

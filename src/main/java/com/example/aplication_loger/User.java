@@ -69,8 +69,9 @@ public class User {
     return password;
   }
 
-  public void setPassword(String password) {
+  public String setPassword(String password) {
     this.password = password;
+      return password;
   }
 
   public long getPhone_number() {

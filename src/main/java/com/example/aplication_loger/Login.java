@@ -4,12 +4,13 @@ import org.springframework.stereotype.*;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 @Controller
 public class Login {
     User user;
+
+    AESEncryptionDecryption aesEncryptionDecryption = new AESEncryptionDecryption();
+    final String secretKey = "secrete";
+
     User_Repo user_repo;
 
     public Login(User_Repo user_repo) {
@@ -24,13 +25,16 @@ public class Login {
 
     @PostMapping("/chek")
     public String chek_log(@ModelAttribute User user)  {
+        ;
+        user.setPassword(aesEncryptionDecryption.encrypt(user.getPassword(), secretKey));
+
         System.out.println("Inf about User: " + user);
-        boolean test =  user_repo.existsByEmailAndLogin(user.getEmail(), user.getLogin());
+
+        boolean test =  user_repo.existsByEmailAndLoginAndPassword(user.getEmail(), user.getLogin(), user.getPassword());
+
         System.out.println(test);
         if (test){
 
-
-            System.out.println(test);
             return "redirect:/index";
 
         }else {
