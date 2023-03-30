@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logining</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<style>
+    body{
+        background: antiquewhite;
+    }
+    .Button{
+        background: #7d756b;
+        color: white;
+        border-radius: 30% 10%;
+        border-color:#645e56;
+
+        height: 50px;
+        width: 100px;
+
+        font-family: "Adelle Sans Devanagari";
+    }
+
+    .Pole{
+        border-radius: 30% 10%;
+        border-color:#645e56;
+        border-radius: 15px;
+
+        text-align: center;
+    }
+</style>
+<body>
+
+<form th:action="@{/chek}" th:object="${log_user}" method="post" class="Pole">
+    <p>Login: <input type="text" th:field="*{login}" class="Pole"></p>
+    <p>Email: <input type="email" th:field="*{email}" class="Pole"></p>
+    <p>Password: <input type="password" th:field="*{password}" class="Pole"></p>
+    <p><input type="submit" , value="Login" class="Button"></p>
+</form>
+
+
+</body>
+</html>
