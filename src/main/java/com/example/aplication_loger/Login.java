@@ -35,7 +35,7 @@ public class Login {
         System.out.println(test);
         if (test){
 
-            return "redirect:/inf_about_user";
+            return "redirect:/profil";
 
         }else {
             System.out.println(test);
