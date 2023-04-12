@@ -25,7 +25,7 @@ public class Login {
 
     @PostMapping("/chek")
     public String chek_log(@ModelAttribute User user)  {
-        ;
+
         user.setPassword(aesEncryptionDecryption.encrypt(user.getPassword(), secretKey));
 
         System.out.println("Inf about User: " + user);
@@ -35,7 +35,7 @@ public class Login {
         System.out.println(test);
         if (test){
 
-            return "redirect:/index";
+            return "redirect:/inf_about_user";
 
         }else {
             System.out.println(test);
