@@ -10,6 +10,8 @@ public class information {
     @GetMapping("/information")
     public String Profile(){
 
+
+
         return "information";
     }
 

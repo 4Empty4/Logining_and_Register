@@ -44,7 +44,7 @@ public class Register {
 
 
         user.setPassword(aesEncryptionDecryption.encrypt(user.getPassword(), secretKey));
-        boolean cheker=user_repo.existsByEmailOrLoginOrName(user.getEmail(),user.getLogin(),user.getName());
+        boolean cheker=user_repo.existsByEmailOrLogin(user.getEmail(),user.getLogin());
         if (cheker) {
             System.out.println(cheker);
             return "redirect:Register";
