@@ -1,4 +1,4 @@
-package com.example.aplication_loger;
+package com.example.aplication_loger.Service;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -61,19 +61,5 @@ public class AESEncryptionDecryption {
         return null;
     }
 
-    public String main(String password) {
-        final String secretKey = "secrete";
 
-        String originalString = password;
-
-        AESEncryptionDecryption aesEncryptionDecryption = new AESEncryptionDecryption();
-        encryptedString = aesEncryptionDecryption.encrypt(originalString, secretKey);
-        decryptedString = aesEncryptionDecryption.decrypt(encryptedString, secretKey);
-
-       // System.out.println(originalString);
-        System.out.println(encryptedString);
-        //System.out.println(decryptedString);
-
-        return encryptedString;
-    }
 }

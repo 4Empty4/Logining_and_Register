@@ -1,10 +1,11 @@
-package com.example.aplication_loger;
+package com.example.aplication_loger.Service;
 
+import com.example.aplication_loger.Entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class information {
+public class ProfileService {
 
     User user;
     @GetMapping("/information")
