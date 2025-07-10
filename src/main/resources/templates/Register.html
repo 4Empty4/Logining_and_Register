@@ -1,107 +1,125 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Register</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(120deg, #e8a660, #e89c3e);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
 
-        .form-container {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #e8a660;
+      }
 
-        .form-container h2 {
-            margin-bottom: 30px;
-            color: #333;
-        }
+      .form-container {
+        background: linear-gradient(to right, #ffffff, #b1936f);
+        padding: 30px;
+        border-radius: 40px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
 
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
+      .form-container h2 {
+        margin-bottom: 30px;
+        color: #333;
+      }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 6px;
-            font-weight: bold;
-            color: #444;
-        }
+      .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
 
-        .form-group input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border 0.3s;
-        }
+      .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+        color: #444;
+      }
 
-        .form-group input:focus {
-            border-color: #e89c3e;
-            outline: none;
-        }
+      .form-group input {
+        width: 90%;
+        padding: 2px 15px;
+        border: 1px solid #000000;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border 0.3s;
+        height: 30px;
+      }
 
-        .button {
-            background: #1f1c1a;
-            color: white;
-            height: 50px;
-            width: 100%;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
+      .form-group input:focus {
+        border-color: #e89c3e;
+        outline: none;
+      }
 
-        .button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(97, 61, 18, 0.4);
-        }
+      .button {
+        background: #1f1c1a;
+        color: white;
+        height: 50px;
+        width: 100%;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+      }
 
-       
+      .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(97, 61, 18, 0.4);
+      }
+
+      .button-link {
+        text-decoration: none;
+        display: block;
+        margin-top: 15px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Register</h2>
+      <form th:action="@{/add}" th:object="${newUser}" method="post">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" th:field="*{name}" />
+        </div>
 
-<div class="form-container">
-  
+        <div class="form-group">
+          <label for="login">Login:</label>
+          <input type="text" id="login" th:field="*{login}" />
+        </div>
 
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" th:field="*{email}" />
+        </div>
 
-<form th:action="@{/add}" th:object="${newUser}" method="post" class="Pole">
-  <p1 class="Danne">Name: <input type="text" th:field="*{name}" class="Pole"></p1>
-    <br>
-  <p1 class="Danne">Login: <input type="text" th:field="*{login}" class="Pole"></p1>
-    <br>
-  <p1 class="Danne">Email: <input type="email" th:field="*{email}" class="Pole"></p1>
-    <br>
-  <p1 class="Danne">Password: <input type="password" th:field="*{password}" class="Pole"></p1>
-    <br>
-  <p1 class="Danne">Phone number: <input type="tel" th:field="*{phone_number}" class="Pole"></p1>
-    <br>
-<button type="submit" class="button">Register</button>
-        
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" th:field="*{password}" />
+        </div>
 
+        <div class="form-group">
+          <label for="phone_number">Phone number:</label>
+          <input type="tel" id="phone_number" th:field="*{phone_number}" />
+        </div>
 
-</form>
-<a href="http://localhost:8080/index"><input type="submit", value="Back"  class="button"></a>
+        <button type="submit" class="button">Register</button>
+      </form>
 
-</body>
+      <a href="http://localhost:8080/index" class="button-link">
+        <button class="button">Back</button>
+      </a>
+    </div>
+  </body>
 </html>
