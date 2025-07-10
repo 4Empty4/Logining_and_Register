@@ -1,4 +1,4 @@
-package com.example.aplication_loger;
+package com.example.aplication_loger.Entity;
 import jakarta.persistence.*;
 
 @Entity
