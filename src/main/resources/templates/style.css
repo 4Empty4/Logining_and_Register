@@ -109,3 +109,32 @@ input[type="password"] {
   border: 1px solid #ccc;
   border-radius: 6px;
 }
+.modal-footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.page-wrapper{
+display: flex;
+flex-direction: column;
+height: 100vh;
+padding: 20px;
+}
+
+.top-section{
+    flex: 0 0 auto;
+    text-align: center;
+}
+
+.photo-section{
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-foto{
+  max-width: 100%;
+  height: auto;
+  max-width: 80vh ;
+}
