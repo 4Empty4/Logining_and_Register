@@ -1,0 +1,4 @@
+{
+  "include": ["src/components/"], // Убедитесь, что ваша папка с компонентами здесь
+  "exclude": ["node_modules"]
+}
